@@ -39,36 +39,44 @@ playButton.addEventListener('click', function(){
     let point = 0;
     let size = 10;
     let gameOver = false;
+    let bombMultipleGrid = size;
     const gridSelection = document.getElementById('grid-value').value;
     const bombNum =[];
     containerElement.innerHTML = ' ';
     console.log(bombNum)
-    if(gridSelection == 65){
+    //ceck select value for grid generation
+    if(gridSelection == 64){
         size = 8;
-    }else if(gridSelection == 50){
+    }else if(gridSelection == 49){
         size = 7;
     }
     //bomb generetor
-    for(let i = 0; i < 16; i++){
+    for(let i = 0; i < size; i++){
         bombNum.push(randomBombGenerator(bombNum, 0, gridSelection))
     }
     console.log(bombNum)
     //square generator
     for(let i = 1; i <= gridSelection; i++){
         const newSquareElement = createSquareElement(i, 'square', size, size);
+        //Start game user can click on square
         newSquareElement.addEventListener('click', function(){
+            //check if user lose the match.
             if(!gameOver){
                 newSquareElement.classList.add("click");
                 console.log(i);
                 //check if user selection is a bomb
                 if(bombNum.includes(i)){
-                    alert('fermate');
+                    alert('HAI PERSO!, clicca il tasto play per una nuova partita');
                     newSquareElement.classList.add("loser")
                     point = 0;
                     gameOver = true;
                 }else{
                     //count user point
                     point++;
+                    //ceck if user win the game
+                    if(point == gridSelection - size){
+                        alert('HAI VINTO!');
+                    }
                 }
                 userPoint.innerHTML =  `<h1> ${point} </h1>`
             }
