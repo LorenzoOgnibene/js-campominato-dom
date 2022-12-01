@@ -54,7 +54,7 @@ playButton.addEventListener('click', function(){
     for(let i = 0; i < size; i++){
         bombNum.push(randomBombGenerator(bombNum, 0, gridSelection))
     }
-    console.log(bombNum)
+    //console.log(bombNum)
     //square generator
     for(let i = 1; i <= gridSelection; i++){
         const newSquareElement = createSquareElement(i, 'square', size, size);
