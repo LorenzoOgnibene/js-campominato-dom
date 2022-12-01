@@ -63,7 +63,7 @@ playButton.addEventListener('click', function(){
             //check if user lose the match.
             if(!gameOver){
                 newSquareElement.classList.add("click");
-                console.log(i);
+                //console.log(i);
                 //check if user selection is a bomb
                 if(bombNum.includes(i)){
                     alert('HAI PERSO!, clicca il tasto play per una nuova partita');
