@@ -14,10 +14,10 @@ footer{
     background-color: #001433;
 }
 
-.big-square{
+/* .big-square{
     width: 600px;
     height: 600px;
-}
+} */
 
 .square{
     width: calc(100% / 10);
@@ -25,15 +25,16 @@ footer{
     border: 1px solid black;
     cursor: crosshair;
     color: white;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
-
 .click{
     background-color: aqua;
 }
 
 .loser{
-    /* background-color: red;  */
-    background-image: url('https://toppng.com/uploads/preview/explosion-png-hd-transparent-explosion-hd-explosion-clipart-transparent-11562889354jmuy89mfmc.png');
+    background-color: red;
+    background-image: url(../bomb-png-46588.png);
     background-position: center;
-    background-size: contain;
+    background-size: 50px;
+    background-repeat: no-repeat;
 }

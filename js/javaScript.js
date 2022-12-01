@@ -68,8 +68,10 @@ playButton.addEventListener('click', function(){
                 if(bombNum.includes(i)){
                     alert('HAI PERSO!, clicca il tasto play per una nuova partita');
                     newSquareElement.classList.add("loser")
-                    
                     gameOver = true;
+                    //just for fun
+                    let mySound = new Audio('jumpscareee.mp3');
+                    mySound.play();
                 }else{
                     //count user point
                     point++;
