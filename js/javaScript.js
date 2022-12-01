@@ -33,7 +33,7 @@ function randomBombGenerator(array, min, max){
 const containerElement = document.querySelector('div.big-square');
 const newSquare = createSquareElement();
 const playButton = document.querySelector('button.btn');
-const userPoint = document.getElementById('point');
+const userPoint = document.querySelector('span');
 
 playButton.addEventListener('click', function(){
     let point = 0;
@@ -68,7 +68,7 @@ playButton.addEventListener('click', function(){
                 if(bombNum.includes(i)){
                     alert('HAI PERSO!, clicca il tasto play per una nuova partita');
                     newSquareElement.classList.add("loser")
-                    point = 0;
+                    
                     gameOver = true;
                 }else{
                     //count user point
@@ -78,9 +78,9 @@ playButton.addEventListener('click', function(){
                         alert('HAI VINTO!');
                     }
                 }
-                userPoint.innerHTML =  `<h1> ${point} </h1>`
+                userPoint.innerHTML = point;
             }
-        }, {once : true})
+        }, {once : true})//user only can click one time on square
         containerElement.appendChild(newSquareElement);
     }
 })

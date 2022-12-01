@@ -1,15 +1,17 @@
 header{
     height: 12vh;
+    background-color: #03dd63;
 }
 
 main{
     height: 80vh;
-    background-color: #7fffd4;
+    background-image: linear-gradient(to bottom, #03dd63, #00ac90, #007796, #004371, #001433);
     overflow: scroll;
 }
 
 footer{
     height: 8vh;
+    background-color: #001433;
 }
 
 .big-square{
@@ -22,6 +24,7 @@ footer{
     height: calc(100% / 10); 
     border: 1px solid black;
     cursor: crosshair;
+    color: white;
 }
 
 .click{
@@ -29,5 +32,8 @@ footer{
 }
 
 .loser{
-    background-color: red;
+    /* background-color: red;  */
+    background-image: url('https://toppng.com/uploads/preview/explosion-png-hd-transparent-explosion-hd-explosion-clipart-transparent-11562889354jmuy89mfmc.png');
+    background-position: center;
+    background-size: contain;
 }

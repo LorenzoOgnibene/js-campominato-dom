@@ -18,9 +18,9 @@
             <div class="col-6">
                 <h1 class="me-auto">Campo Minato</h1>
             </div>
-            <div class="col-6 text-end px-4">
-                <button class="btn btn-group-lg btn-primary">Play</button>
-                <select name="grid" id="grid-value">
+            <div class="col-6 px-4 d-flex justify-content-end">
+                <button class="btn btn-group-lg btn-primary px-5 me-4">Play</button>
+                <select name="grid" id="grid-value" class="form-select w-25">
                     <option value="100">10 x 10</option>
                     <option value="64">8 x 8</option>
                     <option value="49">7 x 7</option>
@@ -31,7 +31,9 @@
     <main class="d-flex flex-column">
         <div class="big-square m-auto d-flex flex-wrap">
         </div>
-        <div id="point" class="text-center"></div>
+        <div id="point" class="text-center">
+            <h1 class="text-white">Il tuo punteggio è: <span></span> </h1>
+        </div>
     </main>
     <footer></footer>
 </body>
