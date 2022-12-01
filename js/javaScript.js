@@ -38,6 +38,7 @@ const userPoint = document.getElementById('point');
 playButton.addEventListener('click', function(){
     let point = 0;
     let size = 10;
+    let gameOver = false;
     const gridSelection = document.getElementById('grid-value').value;
     const bombNum =[];
     containerElement.innerHTML = ' ';
@@ -53,22 +54,25 @@ playButton.addEventListener('click', function(){
     }
     console.log(bombNum)
     //square generator
-    for(let i = 1; i < gridSelection; i++){
+    for(let i = 1; i <= gridSelection; i++){
         const newSquareElement = createSquareElement(i, 'square', size, size);
         newSquareElement.addEventListener('click', function(){
-            newSquareElement.classList.toggle("click");
-            console.log(i);
-            //check if user selection is a bomb
-            if(bombNum.includes(i)){
-                alert('fermate');
-                newSquareElement.classList.add("loser")
-                point = 0;
-            }else{
-                //count user point
-                point++;
+            if(!gameOver){
+                newSquareElement.classList.add("click");
+                console.log(i);
+                //check if user selection is a bomb
+                if(bombNum.includes(i)){
+                    alert('fermate');
+                    newSquareElement.classList.add("loser")
+                    point = 0;
+                    gameOver = true;
+                }else{
+                    //count user point
+                    point++;
+                }
+                userPoint.innerHTML =  `<h1> ${point} </h1>`
             }
-        userPoint.innerHTML =  `<h1> ${point} </h1>`
-        })
+        }, {once : true})
         containerElement.appendChild(newSquareElement);
     }
 })
