@@ -33,6 +33,7 @@ function randomBombGenerator(array, min, max){
 const containerElement = document.querySelector('div.big-square');
 const newSquare = createSquareElement();
 const playButton = document.querySelector('button.btn');
+const userPoint = document.getElementById('point');
 
 playButton.addEventListener('click', function(){
     let point = 0;
@@ -59,16 +60,16 @@ playButton.addEventListener('click', function(){
             console.log(i);
             //check if user selection is a bomb
             if(bombNum.includes(i)){
-                console.log('fermate');
+                alert('fermate');
                 newSquareElement.classList.add("loser")
+                point = 0;
             }else{
+                //count user point
                 point++;
-                console.log("punteggio " + point);
             }
+        userPoint.innerHTML =  `<h1> ${point} </h1>`
         })
         containerElement.appendChild(newSquareElement);
     }
-    
-    
 })
 
