@@ -1,18 +1,16 @@
 
-function createSquareElement(content, classes, w, h){
+function createSquareElement(content, classes, size){
     const square = document.createElement('div');
     square.innerText = content;
     square.classList.add(classes,  "d-flex", "justify-content-center", "align-items-center", "fs-5", "p-3")
-    square.style.width = `calc(100% / ${w})`
-    square.style.height = `calc(100% / ${h})`
-    square.addEventListener('click', function(){
-        square.classList.toggle("click")
-    })
+    square.style.width = `calc(100% / ${size})`
+    square.style.height = `calc(100% / ${size})`
+   
     return square;
 }
 
 function getRandomNumber (numMin, numMax){
-    const randomNumber = Math.floor(Math.random() * (numMin - numMax + 1) + numMin);
+    const randomNumber = Math.floor(Math.random() * (numMax - numMin  + 1) + numMin);
     return randomNumber;
 }
 
@@ -37,29 +35,40 @@ const newSquare = createSquareElement();
 const playButton = document.querySelector('button.btn');
 
 playButton.addEventListener('click', function(){
-    let width = 10;
-    let height = 10;
+    let point = 0;
+    let size = 10;
     const gridSelection = document.getElementById('grid-value').value;
     const bombNum =[];
-    const gridNum =[];
     containerElement.innerHTML = ' ';
     console.log(bombNum)
     if(gridSelection == 65){
-        width = 8;
-        height = 8;
+        size = 8;
     }else if(gridSelection == 50){
-        width = 7;
-        height = 7;
+        size = 7;
     }
-    for(let i = 1; i < gridSelection; i++){
-        containerElement.appendChild(createSquareElement(i, 'square', width, height));
-        gridNum.push(i);
-    }
-    console.log(gridNum);
-    
+    //bomb generetor
     for(let i = 0; i < 16; i++){
-        bombNum.push(randomBombGenerator(bombNum, 0, gridNum.length))
+        bombNum.push(randomBombGenerator(bombNum, 0, gridSelection))
     }
     console.log(bombNum)
+    //square generator
+    for(let i = 1; i < gridSelection; i++){
+        const newSquareElement = createSquareElement(i, 'square', size, size);
+        newSquareElement.addEventListener('click', function(){
+            newSquareElement.classList.toggle("click");
+            console.log(i);
+            //check if user selection is a bomb
+            if(bombNum.includes(i)){
+                console.log('fermate');
+                newSquareElement.classList.add("loser")
+            }else{
+                point++;
+                console.log("punteggio " + point);
+            }
+        })
+        containerElement.appendChild(newSquareElement);
+    }
+    
+    
 })
 
