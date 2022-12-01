@@ -1,0 +1,28 @@
+header{
+    height: 12vh;
+}
+
+main{
+    height: 80vh;
+    background-color: #7fffd4;
+    overflow: scroll;
+}
+
+footer{
+    height: 8vh;
+}
+
+.big-square{
+    width: 600px;
+    height: 600px;
+}
+
+.square{
+    width: calc(100% / 10);
+    height: calc(100% / 10); 
+    border: 1px solid black;
+}
+
+.click{
+    background-color: aqua;
+}
