@@ -21,6 +21,7 @@ footer{
     width: calc(100% / 10);
     height: calc(100% / 10); 
     border: 1px solid black;
+    cursor: crosshair;
 }
 
 .click{
