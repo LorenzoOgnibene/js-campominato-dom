@@ -26,7 +26,6 @@ function randomBombGenerator(array, min, max){
          isValid = true;
         }
     }
-
      return randomBomb;
 }
 
@@ -39,36 +38,42 @@ playButton.addEventListener('click', function(){
     let point = 0;
     let size = 10;
     let gameOver = false;
-    let bombMultipleGrid = size;
     const gridSelection = document.getElementById('grid-value').value;
     const bombNum =[];
     containerElement.innerHTML = ' ';
     console.log(bombNum)
+   
     //ceck select value for grid generation
     if(gridSelection == 64){
         size = 8;
     }else if(gridSelection == 49){
         size = 7;
     }
+   
     //bomb generetor
     for(let i = 0; i < size; i++){
         bombNum.push(randomBombGenerator(bombNum, 0, gridSelection))
     }
     //console.log(bombNum)
+    
     //square generator
     for(let i = 1; i <= gridSelection; i++){
         const newSquareElement = createSquareElement(i, 'square', size, size);
+       
         //Start game user can click on square
         newSquareElement.addEventListener('click', function(){
+           
             //check if user lose the match.
             if(!gameOver){
                 newSquareElement.classList.add("click");
                 //console.log(i);
+               
                 //check if user selection is a bomb
                 if(bombNum.includes(i)){
                     alert('HAI PERSO!, clicca il tasto play per una nuova partita');
                     newSquareElement.classList.add("loser")
                     gameOver = true;
+                    
                     //just for fun
                     let mySound = new Audio('jumpscareee.mp3');
                     mySound.play();
@@ -78,11 +83,12 @@ playButton.addEventListener('click', function(){
                     //ceck if user win the game
                     if(point == gridSelection - size){
                         alert('HAI VINTO!');
+                        gameOver = true;
                     }
                 }
                 userPoint.innerHTML = point;
             }
-        }, {once : true})//user only can click one time on square
+        }, {once : true})//user only can click onetime on square
         containerElement.appendChild(newSquareElement);
     }
 })
