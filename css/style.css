@@ -33,6 +33,7 @@ footer{
 
 .loser{
     background-color: red;
+    color: transparent;
     background-image: url(../bomb-png-46588.png);
     background-position: center;
     background-size: 50px;
